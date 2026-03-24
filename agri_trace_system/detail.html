@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <!-- 字元編碼設定 -->
+  <meta charset="UTF-8">
+
+  <!-- 響應式顯示設定 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 頁面標題 -->
+  <title>農產品詳細資訊</title>
+
+  <!-- 載入共用樣式 -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 頁首與導覽 -->
+  <header>
+    <h1>農產品供應鏈追蹤系統</h1>
+    <nav>
+      <a href="index.html">首頁</a>
+      <a href="search.html">履歷查詢</a>
+      <a href="admin.html">後台登錄</a>
+    </nav>
+  </header>
+
+  <!-- 主要內容區 -->
+  <div class="container">
+
+    <!-- 產品基本資訊 -->
+    <div class="card">
+      <h2>產品基本資訊</h2>
+      <p><strong>產品名稱：</strong>高麗菜</p>
+      <p><strong>追溯碼：</strong>AGRI-2026-001</p>
+      <p><strong>類別：</strong>蔬菜</p>
+      <p><strong>產地：</strong>雲林縣</p>
+      <p><strong>包裝日期：</strong>2026-03-20</p>
+    </div>
+
+    <!-- 生產者資訊 -->
+    <div class="card">
+      <h2>生產者資訊</h2>
+      <p><strong>農場名稱：</strong>幸福農場</p>
+      <p><strong>生產者：</strong>王小明</p>
+      <p><strong>聯絡電話：</strong>0912-345-678</p>
+    </div>
+
+    <!-- 區塊鏈驗證資訊 -->
+    <div class="card">
+      <h2>區塊鏈驗證結果</h2>
+      <p><strong>區塊編號：</strong>Block #1052</p>
+      <p><strong>Hash：</strong>0xA8F92B7C123456789</p>
+      <p><strong>上鏈時間：</strong>2026-03-20 14:32</p>
+      <p><span class="badge">驗證成功 / 資料未被竄改</span></p>
+    </div>
+
+    <!-- 供應鏈流程時間軸 -->
+    <div class="card">
+      <h2>供應鏈流程時間軸</h2>
+      <div class="timeline">
+
+        <!-- 時間軸項目 1 -->
+        <div class="timeline-item">
+          <h3>2026-03-10</h3>
+          <p>完成採收</p>
+        </div>
+
+        <!-- 時間軸項目 2 -->
+        <div class="timeline-item">
+          <h3>2026-03-12</h3>
+          <p>完成包裝與批次建檔</p>
+        </div>
+
+        <!-- 時間軸項目 3 -->
+        <div class="timeline-item">
+          <h3>2026-03-15</h3>
+          <p>物流中心出貨</p>
+        </div>
+
+        <!-- 時間軸項目 4 -->
+        <div class="timeline-item">
+          <h3>2026-03-18</h3>
+          <p>通路上架</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

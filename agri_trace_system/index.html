@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <!-- 設定網頁編碼為 UTF-8，避免中文亂碼 -->
+  <meta charset="UTF-8">
+
+  <!-- 讓網頁在手機或平板上也能正常顯示 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 網頁分頁標題 -->
+  <title>農產品供應鏈追蹤系統 - 首頁</title>
+
+  <!-- 連接外部 CSS 樣式檔 -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 頁首區域：顯示系統名稱與導覽列 -->
+  <header>
+    <h1>農產品供應鏈追蹤系統</h1>
+
+    <!-- 導覽列：可切換到不同頁面 -->
+    <nav>
+      <a href="index.html">首頁</a>
+      <a href="search.html">履歷查詢</a>
+      <a href="admin.html">後台登錄</a>
+    </nav>
+  </header>
+
+  <!-- 主要內容容器 -->
+  <div class="container">
+
+    <!-- 首頁主視覺區塊 -->
+    <section class="hero card">
+      <h2>快速追蹤農產品從產地到餐桌的完整流程</h2>
+      <p>
+        透過追溯碼、供應鏈資料與區塊鏈驗證，
+        讓消費者看見透明、安全、可信任的農產品資訊。
+      </p>
+
+      <!-- 按下按鈕後跳轉到查詢頁 -->
+      <button onclick="location.href='search.html'">立即查詢</button>
+    </section>
+
+    <!-- 系統功能介紹區 -->
+    <section class="card">
+      <h2>系統功能介紹</h2>
+
+      <!-- 使用兩欄排版呈現功能 -->
+      <div class="grid-2">
+
+        <!-- 功能區塊 1 -->
+        <div class="feature-box">
+          <h3>農產品履歷查詢</h3>
+          <p>輸入追溯碼或掃描 QR Code，快速查詢產品來源、生產者、包裝與物流資訊。</p>
+        </div>
+
+        <!-- 功能區塊 2 -->
+        <div class="feature-box">
+          <h3>供應鏈流程透明化</h3>
+          <p>從生產、採收、包裝、運輸到上架，每筆紀錄都可追蹤。</p>
+        </div>
+
+        <!-- 功能區塊 3 -->
+        <div class="feature-box">
+          <h3>區塊鏈不可竄改</h3>
+          <p>重要紀錄可上鏈保存，提升資料可信度與驗證能力。</p>
+        </div>
+
+        <!-- 功能區塊 4 -->
+        <div class="feature-box">
+          <h3>後台資料管理</h3>
+          <p>農民、廠商、物流方可登入後台維護產品資訊與供應鏈紀錄。</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 農產品溯源流程說明 -->
+    <section class="card">
+      <h2>農產品溯源流程</h2>
+      <p>農場生產 → 採收 → 包裝 → 物流運輸 → 通路上架 → 消費者查詢</p>
+    </section>
+
+  </div>
+</body>
+</html>

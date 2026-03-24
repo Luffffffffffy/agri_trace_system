@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <!-- 設定網頁編碼 -->
+  <meta charset="UTF-8">
+
+  <!-- 響應式顯示 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 分頁標題 -->
+  <title>後台資料登錄</title>
+
+  <!-- 載入共用樣式 -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 頁首 -->
+  <header>
+    <h1>農產品供應鏈追蹤系統</h1>
+    <nav>
+      <a href="index.html">首頁</a>
+      <a href="search.html">履歷查詢</a>
+      <a href="admin.html">後台登錄</a>
+    </nav>
+  </header>
+
+  <!-- 主要內容區 -->
+  <div class="container">
+
+    <!-- 後台新增資料表單 -->
+    <div class="card">
+      <h2>新增農產品資料</h2>
+
+      <!-- 產品名稱輸入 -->
+      <label>產品名稱</label>
+      <input type="text" id="adminProductName" placeholder="例如：高麗菜">
+
+      <!-- 產品類別下拉選單 -->
+      <label>產品類別</label>
+      <select id="adminCategory">
+        <option>蔬菜</option>
+        <option>水果</option>
+        <option>稻米</option>
+        <option>茶葉</option>
+      </select>
+
+      <!-- 生產者名稱 -->
+      <label>生產者名稱</label>
+      <input type="text" id="producer" placeholder="請輸入生產者">
+
+      <!-- 生產批次 -->
+      <label>生產批次</label>
+      <input type="text" id="batchNo" placeholder="例如：BATCH-001">
+
+      <!-- 包裝日期 -->
+      <label>包裝日期</label>
+      <input type="date" id="packageDate">
+
+      <!-- 物流紀錄 -->
+      <label>物流紀錄</label>
+      <textarea id="shippingRecord" rows="4" placeholder="請輸入物流資訊"></textarea>
+
+      <!-- 檢驗資料上傳 -->
+      <label>檢驗資料</label>
+      <input type="file" id="reportFile">
+
+      <!-- 送出資料按鈕 -->
+      <button onclick="submitProduct()">送出資料</button>
+    </div>
+
+    <!-- 顯示送出結果 -->
+    <div class="card">
+      <h2>送出結果</h2>
+      <div id="submitResult">尚未送出資料</div>
+    </div>
+
+  </div>
+
+  <!-- 載入後台頁 JavaScript -->
+  <script src="js/admin.js"></script>
+</body>
+</html>
