@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <!-- 設定字元編碼，避免中文亂碼 -->
+  <meta charset="UTF-8">
+
+  <!-- 響應式設計設定，讓手機也能正常顯示 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 分頁標題 -->
+  <title>查詢檢驗資訊</title>
+
+  <!-- 載入共用 CSS 樣式 -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 頁首區域 -->
+  <header>
+    <h1>農產品供應鏈追蹤系統</h1>
+
+    <!-- 導覽列 -->
+    <nav>
+      <a href="index.html">首頁</a>
+      <a href="search.html">履歷查詢</a>
+      <a href="producer.html">查詢生產者</a>
+      <a href="inspection.html">查詢檢驗資訊</a>
+      <a href="admin.html">後台登錄</a>
+    </nav>
+  </header>
+
+  <!-- 主要內容容器 -->
+  <div class="container">
+
+    <!-- 頁面說明區塊 -->
+    <div class="card">
+      <h2>查詢檢驗資訊</h2>
+      <p>可依追溯編號、產品名稱與檢驗類別查詢檢驗資訊。</p>
+    </div>
+
+    <!-- 查詢條件區塊 -->
+    <div class="card">
+      <h2>查詢條件</h2>
+
+      <!-- 四欄排版 -->
+      <div class="grid-4">
+        <div>
+          <label>依追溯編號</label>
+          <input type="text" id="inspectionTraceNumber" placeholder="輸入追溯編號">
+        </div>
+
+        <div>
+          <label>產品大分類</label>
+          <select id="inspectionCategoryMain">
+            <option value="">請選擇</option>
+            <option value="水果">水果</option>
+            <option value="蔬菜">蔬菜</option>
+            <option value="糧食">糧食</option>
+          </select>
+        </div>
+
+        <div>
+          <label>產品小分類</label>
+          <select id="inspectionCategorySub">
+            <option value="">請選擇</option>
+            <option value="番石榴">番石榴</option>
+            <option value="甜桃">甜桃</option>
+            <option value="大蒜">大蒜</option>
+            <option value="甘藷">甘藷</option>
+            <option value="香蕉">香蕉</option>
+            <option value="檸檬">檸檬</option>
+          </select>
+        </div>
+
+        <div>
+          <label>依檢驗類別</label>
+          <select id="inspectionType">
+            <option value="">請選擇</option>
+            <option value="政府抽驗">政府抽驗</option>
+            <option value="質譜快檢抽驗">質譜快檢抽驗</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- 按鈕區 -->
+      <div class="button-row">
+        <button onclick="searchInspection()">查詢</button>
+        <button onclick="showAllInspection()">列出全部</button>
+      </div>
+    </div>
+
+    <!-- 查詢結果區 -->
+    <div class="card">
+      <h2>查詢結果</h2>
+
+      <div class="table-wrapper">
+        <table class="result-table">
+          <thead>
+            <tr>
+              <th>項次</th>
+              <th>追溯編號</th>
+              <th>生產者/單位</th>
+              <th>檢驗類別</th>
+              <th>產品名稱</th>
+            </tr>
+          </thead>
+          <tbody id="inspectionResultBody">
+            <tr>
+              <td colspan="5">尚未查詢資料</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 載入檢驗資訊查詢的 JavaScript -->
+  <script src="js/inspection.js"></script>
+</body>
+</html>

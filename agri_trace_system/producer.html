@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <!-- 設定字元編碼，避免中文亂碼 -->
+  <meta charset="UTF-8">
+
+  <!-- 響應式網頁設定，讓手機也能正常顯示 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 頁面標題 -->
+  <title>查詢生產者</title>
+
+  <!-- 載入共用 CSS 樣式 -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 頁首區域 -->
+  <header>
+    <h1>農產品供應鏈追蹤系統</h1>
+
+    <!-- 導覽列 -->
+    <nav>
+      <a href="index.html">首頁</a>
+      <a href="search.html">履歷查詢</a>
+      <a href="producer.html">查詢生產者</a>
+      <a href="admin.html">後台登錄</a>
+      <a href="inspection.html">查詢檢驗資訊</a>
+    </nav>
+  </header>
+
+  <!-- 主要內容容器 -->
+  <div class="container">
+
+    <!-- 頁面標題區 -->
+    <div class="card">
+      <h2>查詢生產者</h2>
+      <p>可依追溯編號、關鍵字、生產者名稱、地址、產品類別等條件查詢生產者資訊。</p>
+    </div>
+
+    <!-- 查詢條件區塊 -->
+    <div class="card">
+      <h2>查詢條件</h2>
+
+      <!-- 第一列查詢欄位 -->
+      <div class="grid-4">
+        <div>
+          <label>依追溯編號</label>
+          <input type="text" id="traceNumber" placeholder="輸入追溯編號">
+        </div>
+
+        <div>
+          <label>依關鍵字</label>
+          <input type="text" id="keyword" placeholder="輸入關鍵字">
+        </div>
+
+        <div>
+          <label>依生產者/單位</label>
+          <input type="text" id="producerName" placeholder="輸入生產者/單位">
+        </div>
+
+        <div>
+          <label>依聯絡地址（縣市）</label>
+          <select id="cityFilter">
+            <option value="">請選擇縣市</option>
+            <option value="彰化縣">彰化縣</option>
+            <option value="屏東縣">屏東縣</option>
+            <option value="高雄市">高雄市</option>
+            <option value="雲林縣">雲林縣</option>
+            <option value="台南市">台南市</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- 第二列查詢欄位 -->
+      <div class="grid-4">
+        <div>
+          <label>依別名</label>
+          <input type="text" id="alias" placeholder="輸入別名">
+        </div>
+
+        <div>
+          <label>大分類</label>
+          <select id="categoryMain">
+            <option value="">請選擇</option>
+            <option value="水果">水果</option>
+            <option value="蔬菜">蔬菜</option>
+            <option value="糧食">糧食</option>
+          </select>
+        </div>
+
+        <div>
+          <label>小分類</label>
+          <select id="categorySub">
+            <option value="">請選擇</option>
+            <option value="香蕉">香蕉</option>
+            <option value="檸檬">檸檬</option>
+            <option value="扁蒲">扁蒲</option>
+            <option value="無子檸檬">無子檸檬</option>
+          </select>
+        </div>
+
+        <div>
+          <label>是否有檢驗資訊</label>
+          <div class="radio-group">
+            <label><input type="radio" name="hasInspection" value="yes"> 是</label>
+            <label><input type="radio" name="hasInspection" value="no"> 否</label>
+            <label><input type="radio" name="hasInspection" value="" checked> 不限</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 按鈕區 -->
+      <div class="button-row">
+        <button onclick="searchProducer()">查詢</button>
+        <button onclick="showAllProducers()">列出全部</button>
+        <button onclick="switchToListView()">列表檢視</button>
+        <button onclick="switchToMapView()">地圖檢視</button>
+      </div>
+    </div>
+
+    <!-- 查詢結果區 -->
+    <div class="card">
+      <h2>查詢結果</h2>
+
+      <!-- 結果表格 -->
+      <div class="table-wrapper">
+        <table class="result-table">
+          <thead>
+            <tr>
+              <th>項次</th>
+              <th>追溯編號</th>
+              <th>生產者/單位</th>
+              <th>產品名稱</th>
+              <th>聯絡地址</th>
+              <th>檢驗資訊</th>
+            </tr>
+          </thead>
+          <tbody id="producerResultBody">
+            <tr>
+              <td colspan="6">尚未查詢資料</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 載入查詢生產者功能的 JS -->
+  <script src="js/producer.js"></script>
+</body>
+</html>
