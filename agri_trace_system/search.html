@@ -1,109 +1,127 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <!-- 設定編碼，避免中文亂碼 -->
+  <!-- 設定字元編碼，避免中文亂碼 -->
   <meta charset="UTF-8">
 
-  <!-- 響應式設計設定 -->
+  <!-- 響應式設定 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- 頁面標題 -->
-  <title>履歷查詢</title>
+  <!-- 分頁標題 -->
+  <title>資料查詢</title>
 
-  <!-- 連接 CSS 樣式 -->
+  <!-- 載入共用樣式 -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- 頁首與導覽列 -->
+  <!-- 頁首 -->
   <header>
     <h1>農產品供應鏈追蹤系統</h1>
+
+    <!-- 導覽列 -->
     <nav>
       <a href="index.html">首頁</a>
       <a href="search.html">履歷查詢</a>
       <a href="producer.html">查詢生產者</a>
-      <a href="admin.html">後台登錄</a>
       <a href="inspection.html">查詢檢驗資訊</a>
+      <a href="admin.html">後台登錄</a>
     </nav>
   </header>
 
-  <!-- 主要內容區 -->
+  <!-- 主要內容 -->
   <div class="container">
 
-    <!-- 查詢表單卡片 -->
+    <!-- 頁面說明 -->
     <div class="card">
-      <h2>履歷查詢</h2>
+      <h2>資料查詢</h2>
+      <p>可依編號、產品名稱、生產者名稱、採樣地點與檢驗結果查詢資料。</p>
+    </div>
 
-      <!-- 兩欄排版：追溯碼與產品名稱 -->
-      <div class="grid-2">
+    <!-- 查詢條件區 -->
+    <div class="card">
+      <h2>查詢條件</h2>
 
-        <!-- 追溯碼輸入欄位 -->
+      <!-- 四欄排版 -->
+      <div class="grid-4">
+
+        <!-- 編號查詢 -->
         <div>
-          <label>追溯碼</label>
-          <input type="text" id="traceCode" placeholder="請輸入追溯碼">
+          <label for="number">編號</label>
+          <input type="text" id="number" placeholder="請輸入編號">
         </div>
 
-        <!-- 產品名稱輸入欄位 -->
+        <!-- 產品名稱查詢 -->
         <div>
-          <label>產品名稱</label>
+          <label for="productName">產品名稱</label>
           <input type="text" id="productName" placeholder="請輸入產品名稱">
         </div>
 
+        <!-- 生產者名稱查詢 -->
+        <div>
+          <label for="producerName">生產者名稱</label>
+          <input type="text" id="producerName" placeholder="請輸入生產者名稱">
+        </div>
+
+        <!-- 採樣地點查詢 -->
+        <div>
+          <label for="samplingLocation">採樣地點</label>
+          <input type="text" id="samplingLocation" placeholder="請輸入採樣地點">
+        </div>
       </div>
 
-      <!-- 三欄排版：縣市、產品類別、QR Code -->
-      <div class="grid-3">
+      <!-- 第二列查詢條件 -->
+      <div class="grid-4">
 
-        <!-- 縣市選單 -->
+        <!-- 檢驗結果查詢 -->
         <div>
-          <label>縣市</label>
-          <select id="city">
-            <option value="">請選擇縣市</option>
-            <option>台北市</option>
-            <option>台中市</option>
-            <option>台南市</option>
-            <option>高雄市</option>
-            <option>雲林縣</option>
+          <label for="inspectResult">檢驗結果</label>
+          <select id="inspectResult">
+            <option value="">請選擇</option>
+            <option value="合格">合格</option>
+            <option value="不合格">不合格</option>
           </select>
         </div>
-
-        <!-- 產品類別選單 -->
-        <div>
-          <label>產品類別</label>
-          <select id="category">
-            <option value="">請選擇類別</option>
-            <option>蔬菜</option>
-            <option>水果</option>
-            <option>稻米</option>
-            <option>茶葉</option>
-          </select>
-        </div>
-
-        <!-- QR Code 按鈕 -->
-        <div>
-          <label>QR Code</label>
-
-          <!-- 目前先用 alert 模擬功能 -->
-          <button type="button" onclick="alert('之後可接 QR Code 掃描功能')">
-            掃描 QR Code
-          </button>
-        </div>
-
       </div>
 
-      <!-- 查詢按鈕，按下後執行 searchProduct() -->
-      <button onclick="searchProduct()">查詢</button>
+      <!-- 按鈕區 -->
+      <div class="button-row">
+        <button onclick="searchData()">查詢</button>
+        <button onclick="showAllData()">列出全部</button>
+      </div>
     </div>
 
-    <!-- 顯示查詢結果的區域 -->
+    <!-- 查詢結果區 -->
     <div class="card">
       <h2>查詢結果</h2>
-      <div id="resultArea">尚未查詢資料</div>
+
+      <div class="table-wrapper">
+        <table class="result-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>編號</th>
+              <th>產品名稱</th>
+              <th>產品編號</th>
+              <th>生產者名稱</th>
+              <th>採樣地點</th>
+              <th>檢驗結果</th>
+              <th>備註</th>
+              <th>建立時間</th>
+            </tr>
+          </thead>
+          <tbody id="searchResultBody">
+            <tr>
+              <td colspan="9">尚未查詢資料</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
   </div>
 
-  <!-- 載入查詢頁專用 JavaScript -->
+  <!-- 載入查詢功能 JS -->
   <script src="js/search.js"></script>
 </body>
 </html>
