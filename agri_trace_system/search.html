@@ -34,45 +34,58 @@
     <!-- 頁面說明 -->
     <div class="card">
       <h2>資料查詢</h2>
-      <p>可依編號、產品名稱、生產者名稱、採樣地點與檢驗結果查詢資料。</p>
+      <p>可依追溯編號、採樣日期、產品名稱、產品編號、生產者名稱、採樣地點、檢驗結果與備註類型查詢資料。</p>
     </div>
 
     <!-- 查詢條件區 -->
     <div class="card">
       <h2>查詢條件</h2>
 
-      <!-- 四欄排版 -->
+      <!-- 第一列查詢條件 -->
       <div class="grid-4">
 
-        <!-- 編號查詢 -->
+        <!-- 追溯編號 -->
         <div>
-          <label for="number">編號</label>
-          <input type="text" id="number" placeholder="請輸入編號">
+          <label for="number">追溯編號</label>
+          <input type="text" id="number" placeholder="例：TGAP1140610128">
         </div>
 
-        <!-- 產品名稱查詢 -->
+        <!-- 採樣日期 -->
+        <div>
+          <label for="samplingDate">採樣日期</label>
+          <input type="text" id="samplingDate" placeholder="例：1140730">
+        </div>
+
+        <!-- 產品名稱 -->
         <div>
           <label for="productName">產品名稱</label>
-          <input type="text" id="productName" placeholder="請輸入產品名稱">
+          <input type="text" id="productName" placeholder="例：番石榴">
         </div>
 
-        <!-- 生產者名稱查詢 -->
+        <!-- 產品編號 -->
         <div>
-          <label for="producerName">生產者名稱</label>
-          <input type="text" id="producerName" placeholder="請輸入生產者名稱">
+          <label for="productId">產品編號</label>
+          <input type="text" id="productId" placeholder="請輸入產品編號">
         </div>
 
-        <!-- 採樣地點查詢 -->
-        <div>
-          <label for="samplingLocation">採樣地點</label>
-          <input type="text" id="samplingLocation" placeholder="請輸入採樣地點">
-        </div>
       </div>
 
       <!-- 第二列查詢條件 -->
       <div class="grid-4">
 
-        <!-- 檢驗結果查詢 -->
+        <!-- 生產者名稱 -->
+        <div>
+          <label for="producerName">生產者名稱</label>
+          <input type="text" id="producerName" placeholder="請輸入生產者名稱">
+        </div>
+
+        <!-- 採樣地點 -->
+        <div>
+          <label for="samplingLocation">採樣地點</label>
+          <input type="text" id="samplingLocation" placeholder="例：高雄市岡山區">
+        </div>
+
+        <!-- 檢驗結果 -->
         <div>
           <label for="inspectResult">檢驗結果</label>
           <select id="inspectResult">
@@ -81,6 +94,18 @@
             <option value="不合格">不合格</option>
           </select>
         </div>
+
+        <!-- 備註類型 -->
+        <div>
+          <label for="note">備註類型</label>
+          <select id="note">
+            <option value="">請選擇</option>
+            <option value="僅標示">僅標示</option>
+            <option value="農藥殘留">農藥殘留</option>
+            <option value="重金屬">重金屬</option>
+          </select>
+        </div>
+
       </div>
 
       <!-- 按鈕區 -->
@@ -99,7 +124,8 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>編號</th>
+              <th>追溯編號</th>
+              <th>採樣日期</th>
               <th>產品名稱</th>
               <th>產品編號</th>
               <th>生產者名稱</th>
@@ -111,7 +137,7 @@
           </thead>
           <tbody id="searchResultBody">
             <tr>
-              <td colspan="9">尚未查詢資料</td>
+              <td colspan="10">尚未查詢資料</td>
             </tr>
           </tbody>
         </table>

@@ -43,11 +43,13 @@ async function searchData() {
 
     // 取得查詢條件
     const number = document.getElementById("number").value.trim();
+    const samplingDate = document.getElementById("samplingDate").value.trim();
     const productName = document.getElementById("productName").value.trim();
+    const productId = document.getElementById("productId").value.trim();
     const producerName = document.getElementById("producerName").value.trim();
     const samplingLocation = document.getElementById("samplingLocation").value.trim();
     const inspectResult = document.getElementById("inspectResult").value;
-
+    const note = document.getElementById("note").value;
     // 前端篩選資料
     const filteredData = result.data.filter(item => {
 
@@ -67,11 +69,14 @@ async function searchData() {
       const matchInspectResult = !inspectResult || item.inspect_result === inspectResult;
 
       return (
-        matchNumber &&
-        matchProductName &&
-        matchProducerName &&
-        matchSamplingLocation &&
-        matchInspectResult
+        (!number || item.number.includes(number)) &&
+        (!samplingDate || item.sampling_date.includes(samplingDate)) &&
+        (!productName || item.product_name.includes(productName)) &&
+        (!productId || item.product_id.includes(productId)) &&
+        (!producerName || item.producer_name.includes(producerName)) &&
+        (!samplingLocation || item.sampling_location.includes(samplingLocation)) &&
+        (!inspectResult || item.inspect_result === inspectResult) &&
+        (!note || item.note === note)
       );
     });
 
